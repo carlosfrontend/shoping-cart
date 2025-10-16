@@ -12,17 +12,26 @@ import { Label } from "@/components/ui/label";
 import { SliderMinPrice } from "./SliderMinPrice";
 import { SelectCategory } from "./SelectCategory";
 import { Separator } from "./ui/separator";
+import { ListFilter } from "lucide-react";
 
 const Filters = () => {
   return (
     <div className="flex justify-center py-4">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline">Filter Products</Button>
+          <Button variant="outline">
+            <ListFilter />
+            Filter Products
+          </Button>
         </SheetTrigger>
         <SheetContent side="left">
           <SheetHeader>
-            <SheetTitle>Filters</SheetTitle>
+            <SheetTitle>
+              <div className="flex items-center gap-2">
+                <ListFilter />
+                <span>Filters</span>
+              </div>
+            </SheetTitle>
             <SheetDescription>
               From here you can filter the products...
             </SheetDescription>

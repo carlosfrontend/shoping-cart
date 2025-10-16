@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useEffect, useState, useRef, useId } from "react";
-import { GiftIcon, SearchIcon, ShoppingCart } from "lucide-react";
+import { GiftIcon, SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 
 import { ModeToggle } from "@/components/mode-toggle";
 import { Link, useLocation } from "react-router";
+import Cart from "@/components/Cart";
 
 // Simple logo component for the navbar
 const Logo = (props: React.SVGAttributes<SVGElement>) => {
@@ -119,10 +120,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
       logo = <GiftIcon className="size-8" />,
       logoHref = "/",
       navigationLinks = defaultNavigationLinks,
-      cartHref = "cart",
-      cartCount = 12589,
       searchPlaceholder = "Search...",
-      onCartClick,
       onSearchSubmit,
       ...props
     },
@@ -230,24 +228,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
                       </NavigationMenuItem>
 
                       <NavigationMenuItem className="w-full">
-                        <Button
-                          size="sm"
-                          className="mt-0.5 w-full text-left text-sm"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            if (onCartClick) onCartClick();
-                          }}
-                        >
-                          <Link
-                            to={cartHref}
-                            className="flex items-baseline gap-2"
-                          >
-                            <ShoppingCart className="size-4" />
-                            <span className="text-primary-foreground text-xs">
-                              {cartCount}
-                            </span>
-                          </Link>
-                        </Button>
+                        <Cart />
                       </NavigationMenuItem>
                     </NavigationMenuList>
                   </NavigationMenu>
@@ -258,7 +239,6 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
             <div className="flex flex-1 items-center gap-6 max-md:justify-between">
               <Link
                 to={logoHref}
-                // onClick={(e) => e.preventDefault()}
                 className="flex items-center space-x-2 text-primary hover:text-primary/90 transition-colors cursor-pointer"
               >
                 <div className="text-2xl">{logo}</div>
@@ -278,7 +258,6 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
                               ? link.href
                               : `/${link.label.toLowerCase()}`
                           }
-                          // onClick={(e) => e.preventDefault()}
                           className="text-muted-foreground hover:text-primary  font-medium transition-colors cursor-pointer group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                         >
                           {link.label}
@@ -308,21 +287,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
           {/* Right side */}
           {!isMobile && (
             <div className="flex items-center gap-3">
-              <Button
-                size="sm"
-                className="text-sm font-medium px-4 h-9 rounded-md shadow-sm"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (onCartClick) onCartClick();
-                }}
-              >
-                <Link to={cartHref} className="flex items-baseline gap-2">
-                  <ShoppingCart size={16} />
-                  <span className="text-primary-foreground text-xs">
-                    {cartCount}
-                  </span>
-                </Link>
-              </Button>
+              <Cart />
             </div>
           )}
           <ModeToggle />
