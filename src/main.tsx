@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import HomePage from "./components/HomePage.tsx";
-import { ShopPage } from "./components/Shop.tsx";
+import { ShopPage } from "./components/ShopPage.tsx";
 import CartPage from "./components/CartPage.tsx";
 
 const router = createBrowserRouter([

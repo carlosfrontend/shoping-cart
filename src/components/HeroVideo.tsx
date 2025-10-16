@@ -33,6 +33,18 @@ export const HeroVideo = ({
           <Link to="shop">
             <Button className="font-bold text-lg">{buttonText}</Button>
           </Link>
+          <a
+            href="https://www.pexels.com/es-es/video/soleado-moda-gafas-de-sol-mujer-6118572/"
+            target="_blank"
+            rel="noreferer noopener"
+          >
+            <Button
+              variant={"link"}
+              className="absolute bottom-1 right-2 text-muted-foreground/80 hover:text-muted-foreground/100 transform hover:scale-105 hover:underline"
+            >
+              Vídeo from cottonbro studio
+            </Button>
+          </a>
         </div>
       </div>
     </section>
